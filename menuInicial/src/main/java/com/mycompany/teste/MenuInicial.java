@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MenuInicial {
     
     public static void main(String[] args) {
-        
+        consulta con = new consulta();
         Scanner ler = new Scanner(System.in);
 
         String menu; 
@@ -60,7 +60,7 @@ public class MenuInicial {
                     break;
                 case "2":
                     System.out.println("Voce escolheu RECEITAS");
-                    i=99;
+                    con.menuu();
                     break;
                 case "3":
                     System.out.println("Voce escolheu PACIENTE");
