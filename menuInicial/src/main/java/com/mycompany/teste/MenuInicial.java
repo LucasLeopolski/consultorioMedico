@@ -7,7 +7,7 @@ public class MenuInicial {
     
     public static void main(String[] args) {
         consulta con = new consulta();
-        Scanner ler = new Scanner(System.in)
+        Scanner ler = new Scanner(System.in);
         //Date data = new Date();
         //Especialidades especialidade = new Especialidades(String.class, boolean.class, boolean.class, String.class, String.class, int.class, int.class, String.class, int.class, int.class);
         
