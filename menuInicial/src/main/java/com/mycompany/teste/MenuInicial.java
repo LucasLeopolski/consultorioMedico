@@ -23,7 +23,40 @@ public class MenuInicial {
                     break;
                 case "1":
                     System.out.println("Voce escolheu ESPECIALIDADES!");
-                    i=99;
+                    for(int j = 0; j < 3; j++){
+                        System.out.println("Voce escolheu ESPECIALIDADES!");
+                        System.out.println("=============================");
+                        System.out.println("Escolha o que deseja executar em ESPECIALIDADES conforme a tabela");
+                        System.out.println("1 - ACESSAR FICHA");
+                        System.out.println("2 - ACESSAR RELATÓRIO");
+                        System.out.println("3 - HORA DISPONÍVEL");
+                        System.out.println("4 - VOLTAR AO MENU INICIAL");
+                        String codEspecialidades = ler.next();
+                        switch (codEspecialidades) {
+                            case "1":
+                                System.out.println("especialidade.acessarFicha(); ");
+                                //especialidade.acessarFicha();
+                                j=99;
+                                break;
+                            case "2":
+                                System.out.println("especialidade.acessarRelatorio();");
+                                //especialidade.acessarRelatorio();
+                                j=99;
+                                break;
+                            case "3":
+                                System.out.println("especialidade.horaDisponivel()");
+                                //especialidade.horaDisponivel();
+                                j=99;
+                                break;
+                            case "4":
+                                j=99;
+                                break;   
+                            default:
+                                System.out.println("OPÇÃO INVÁLIDADE, TENTE NOVAMENTE!");
+                                j=0;
+                                break;
+                        }
+                    }
                     break;
                 case "2":
                     System.out.println("Voce escolheu RECEITAS");
