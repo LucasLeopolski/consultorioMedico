@@ -1,18 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package objeto.consultoriomedico;
+
 import java.util.Scanner;
 
 public class ConsultorioMedico {
-        public static void main(String[] args) {
-        receita re = new receita();
-        //Especialidades es = new Especialidades();
-        Scanner ler = new Scanner(System.in);
-        //Date data = new Date();
-        //Especialidades especialidade = new Especialidades(String.class, boolean.class, boolean.class, String.class, String.class, int.class, int.class, String.class, int.class, int.class);
         
+        public static void main(String[] args) {
+                
+        receita re = new receita();
+        Especialidades especialidade = new Especialidades();
+        Scanner ler = new Scanner(System.in);
+
         String menu; 
         
         for(int i = 0;i<3;i++){
@@ -40,18 +37,17 @@ public class ConsultorioMedico {
                         switch (codEspecialidades) {
                             case "1":
                                 System.out.println("especialidade.acessarFicha(); ");
-                                //especialidade.acessarFicha();
-                                //es.acessarFicha();
+                                especialidade.acessarFicha();
                                 j=99;
                                 break;
                             case "2":
                                 System.out.println("especialidade.acessarRelatorio();");
-                                //especialidade.acessarRelatorio();
+                                especialidade.acessarRelatorio();
                                 j=99;
                                 break;
                             case "3":
                                 System.out.println("especialidade.horaDisponivel()");
-                                //especialidade.horaDisponivel();
+                                especialidade.horaDisponivel();
                                 j=99;
                                 break;
                             case "4":
