@@ -122,6 +122,7 @@ public class Receita {
             System.out.println("Tempo da receita: "+emissao[i]);
             System.out.println("Medicamento: "+nomeMedicamento[i]);
             System.out.println("\n============================================\n");
+            menuu();
         }
    }
 
@@ -157,7 +158,7 @@ public class Receita {
         Scanner ler = new Scanner(System.in);
          String escolha;
         System.out.println("Oque voce gostaria de fazer, escolha uma das opçoes");
-        System.out.println("(0)Agendar Horario\n(1)Cancelar Horario\n(2)Mandar um lembrete");
+        System.out.println("(0)Agendar Horario\n(1)Cancelar Horario\n(2)Mandar um lembrete\n(3)Menu Principal");
         escolha = ler.next();
          switch (escolha) {
                 case "0":
@@ -168,6 +169,9 @@ public class Receita {
                 break;
                 case "2":
                     lembrete();
+                break;
+              case "3":
+                   menuu();
                 break;
          }
     }
