@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ConsultorioMedico {
         public static void main(String[] args) {
-        //receita re = new receita();
+        receita re = new receita();
         //Especialidades es = new Especialidades();
         Scanner ler = new Scanner(System.in);
         //Date data = new Date();
@@ -66,7 +66,7 @@ public class ConsultorioMedico {
                     break;
                 case "2":
                     System.out.println("Voce escolheu RECEITAS");
-                    //re.menuu();
+                    re.menuu();
                     break;
                 case "3":
                     System.out.println("Voce escolheu PACIENTE");
