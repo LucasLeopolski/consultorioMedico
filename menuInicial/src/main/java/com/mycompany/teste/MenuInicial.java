@@ -1,4 +1,4 @@
-package com.mycompany.consultomedico;
+package com.mycompany.consultoriomedico;
 
 //import java.util.Date;
 import java.util.Scanner;
