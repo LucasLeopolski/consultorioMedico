@@ -1,4 +1,4 @@
-package com.mycompany.teste;
+package com.mycompany.consultomedico;
 
 //import java.util.Date;
 import java.util.Scanner;
