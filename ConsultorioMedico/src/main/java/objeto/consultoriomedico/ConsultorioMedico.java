@@ -6,7 +6,7 @@ public class ConsultorioMedico {
         
         public static void main(String[] args) {
                 
-        receita re = new receita();
+        Receita re = new Receita();
         Especialidades especialidade = new Especialidades();
         Scanner ler = new Scanner(System.in);
 
