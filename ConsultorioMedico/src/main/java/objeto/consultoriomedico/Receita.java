@@ -156,6 +156,7 @@ public class Receita {
     
     public void menuu(){ 
         Scanner ler = new Scanner(System.in);
+         for(int i=0;i<3;i++){
          String escolha;
         System.out.println("Oque voce gostaria de fazer, escolha uma das opçoes");
         System.out.println("(0)Agendar Horario\n(1)Cancelar Horario\n(2)Mandar um lembrete\n(3)Menu Principal");
@@ -171,8 +172,9 @@ public class Receita {
                     lembrete();
                 break;
               case "3":
-                   menuu();
+                   i=6;
                 break;
+         }
          }
     }
 }
