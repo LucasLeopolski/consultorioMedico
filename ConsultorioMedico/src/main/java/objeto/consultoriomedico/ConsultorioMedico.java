@@ -8,6 +8,7 @@ public class ConsultorioMedico {
                 
         Receita re = new Receita();
         Especialidades especialidade = new Especialidades();
+        paciente pe = new paciente();
         Scanner ler = new Scanner(System.in);
 
         String menu; 
@@ -66,7 +67,7 @@ public class ConsultorioMedico {
                     break;
                 case "3":
                     System.out.println("Voce escolheu PACIENTE");
-                    i=99;
+                    pe.menu1();
                     break;
                 case "4":
                     System.out.println("Voce escolheu CADASTRAR FUNCIONARIO");
