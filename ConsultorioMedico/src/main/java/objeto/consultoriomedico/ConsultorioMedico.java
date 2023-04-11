@@ -8,6 +8,7 @@ public class ConsultorioMedico {
                 
         Receita re = new Receita();
         Especialidades especialidade = new Especialidades();
+        Agendamento ag = new Agendamento();        
         paciente pe = new paciente();
         Scanner ler = new Scanner(System.in);
 
@@ -21,6 +22,7 @@ public class ConsultorioMedico {
             switch (menu) {
                 case "0":
                     System.out.println("Voce escolheu AGENDAMENTO DE CONSULTA");
+                    ag.menu2();
                     i=99;
                     //agendamento();
                     break;
