@@ -113,9 +113,28 @@ public class Agendamento {
             }
         }
     }
-
+    
+     public void menu2(){ 
+        Scanner ler = new Scanner(System.in);
+        for(int i=0;i<3;i++){
+         String escolha;
+        System.out.println("Escolha uma opção !");
+        System.out.println("(0) Marcar Consulta\n(1) Agendar Horario\n(2) Cancelar Horario\n(3)Lembrar Horario \n(4)Menu Principal");
+        escolha = ler.next();
+         switch (escolha) {
+                case "0" -> marcarConsulta();
+                case "1" -> agendarHorario();
+                case "2" -> cancelarHorario();
+                case "3" -> lembrarHorario();
+                case "4" -> i=6;
+        
+         }
+        }
+     }
     public static void main(String[] args) {
         Agendamento consulta = new Agendamento();
         consulta.marcarConsulta();
     }
 }
+
+
