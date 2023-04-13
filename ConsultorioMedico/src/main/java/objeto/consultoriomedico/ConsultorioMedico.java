@@ -12,7 +12,7 @@ public class ConsultorioMedico {
         paciente pe = new paciente();
         Scanner ler = new Scanner(System.in);
 
-        String menu; 
+        String menu;  
         
         for(int i = 0;i<3;i++){
             System.out.println("\nBem vindo(a) ao Medic Softwares! No que podemos lhe ajudar!");
@@ -26,6 +26,7 @@ public class ConsultorioMedico {
                     i=99;
                     //agendamento();
                     break;
+                    
                 case "1":
                     System.out.println("Voce escolheu ESPECIALIDADES!");
                     for(int j = 0; j < 3; j++){
@@ -37,6 +38,7 @@ public class ConsultorioMedico {
                         System.out.println("3 - HORA DISPONÍVEL");
                         System.out.println("4 - VOLTAR AO MENU INICIAL");
                         String codEspecialidades = ler.next();
+                        
                         switch (codEspecialidades) {
                             case "1":
                                 System.out.println("especialidade.acessarFicha(); ");
