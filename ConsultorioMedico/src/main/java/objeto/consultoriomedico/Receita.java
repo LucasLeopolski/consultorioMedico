@@ -9,33 +9,26 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
- * @author Windows
+ * Analista original: Uelberti
+ * Dev antigo: Matheus Schmidt
+ * Dev novo: Lucas Pessoli
  */
 public class Receita {
-     public String[] nomePaciente = new String[100];
-
+    
+    public String[] nomePaciente = new String[100];
     public String[] nomeMedico = new String[100];
-    
-    public int[] emissao = new int[100];
-    
     public String[] nomeMedicamento = new String[100];
-    
-    public int[] codIdentificacao = new int[100];
-    
-    public Date validade;
     public String nomeComercial;
     public String consulta;
-    
-    private int id;
-    private double dosagem;
     private String instrucoes;
+    public int[] emissao = new int[100];
+    public int[] codIdentificacao = new int[100];
+    private int id;
     private int quantidade;
-    
-    
-    
-    int terminouLoop;
-    int codNovo;
+    private double dosagem;
+    public Date validade;
+
+    int fimLoop;
 
     public int getId() {
         return id;
@@ -68,114 +61,109 @@ public class Receita {
     public void setQuatidade(int quatidade) {
         this.quantidade = quatidade;
     }
-    
-    public void agendarHorario(){
-        
-        for(int c = 0;c<100;c++){
-        terminouLoop=c;    
-        
-        System.out.println("Precisamos de alguns dados para agendar um horario para retirar seus medicamentos");
-        Scanner ler = new Scanner(System.in);
-        System.out.println("Qual seu nome:");
-        nomePaciente[c] = ler.next();
-        System.out.println("Qual o nome do medico que deu a receita para voce:");
-        nomeMedico[c] = ler.next();
-        System.out.println("A quantos dias foi dado essa receita a voce:");
-        emissao[c] = ler.nextInt();
-        System.out.println("Qual seria o medicamento:");
-        nomeMedicamento[c] = ler.next();
-         for( int i = 0;i < 1000;i++){
-             Random gerador = new Random();
-                codIdentificacao[c]=gerador.nextInt(99);
-            }
-        String escolha;
-        System.out.println("Sr(a)" +nomePaciente[c]+" seu codigo gerado para identificar o medicamento ou caso precise cancelar é "+codIdentificacao[c]);
+
+    public void AgendarHorario() {
+        for (int i = 0; i != -1; i++) {
+            fimLoop = i;
+            Scanner ler = new Scanner(System.in);
+            System.out.println("# Informe o seu nome:");
+            nomePaciente[i] = ler.next();
+            System.out.println("# Informe o nome do medico que lhe forneceu a receita:");
+            nomeMedico[i] = ler.next();
+            System.out.println("* Há quantos dias que o médico lhe forneceu a receita:");
+            emissao[i] = ler.nextInt();
+            System.out.println("#Informe o medicamento:");
+            nomeMedicamento[i] = ler.next();
+            Random gerador = new Random();
+            codIdentificacao[i] = gerador.nextInt(1000);
+            System.out.println("Seu código de identificação: " + codIdentificacao[i]);
+            System.out.println("Sr(a)" + nomePaciente[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
             System.out.println("(0)Agendar outro paciente\n(1)Voltar para o menu");
-            escolha = ler.next();
-             switch (escolha) {
+            String escolha = ler.next();
+            switch (escolha) {
                 case "0":
-                    c=terminouLoop;
-                break;
+                    i = -1;
+                    break;
                 case "1":
-                    menuu();
-                break;
+                    menu();
+                    break;
                 case "2":
-                    marcados();
-                break;
+                    ExibirPessoasMarcadas();
+                    break;
+            }
+        }
     }
-    }
-    }
-   public void marcados(){
-       for(int i = 0;i<terminouLoop+1;i++){
-            System.out.println("Pessoas agendadas!!!\n");
-            System.out.println("Nome: "+nomePaciente[i]);
-            System.out.println("Medico: "+nomeMedico[i]);
-            System.out.println("Tempo da receita: "+emissao[i]+" dias");
-            System.out.println("Medicamento: "+nomeMedicamento[i]);
+
+    public void ExibirPessoasMarcadas() {
+        for (int i = 0; i < fimLoop + 1; i++) {
+            System.out.println("Pessoas agendadas:\n");
+            System.out.println("ID da pessoa: " + codIdentificacao[i]);
+            System.out.println("Nome: " + nomePaciente[i]);
+            System.out.println("Medico: " + nomeMedico[i]);
+            System.out.println("Tempo da receita: " + emissao[i] + " dias");
+            System.out.println("Medicamento: " + nomeMedicamento[i]);
             System.out.println("\n============================================\n");
         }
-       menuu();
-   }
+        menu();
+    }
 
-    
-    
-    public void cancelarHorario(){
+    public void CancelarHorario() {
+        int idNovo;
         Scanner ler = new Scanner(System.in);
-        
-        for(int i = 0;i<100;i++){
         System.out.println("Para o cancelamento do seu horario precisamos confiramar alguns dados:");
-        System.out.println("Qual é seu nome");
-        nomePaciente[i] = ler.next();
-        System.out.println("Qual o seu codigo de identificador");
-        codNovo = ler.nextInt();
-        if(codIdentificacao[i] == codNovo){
-            System.out.println("Seu horario foi cancelado "+nomePaciente[i]+" !!!");
-            nomePaciente[i]="";
-            nomeMedico[i]=""; 
-            emissao[i]=0;
-            nomeMedicamento[i]="";
-            menuu();
-        }else{
-            System.out.println("Erro!!!");
-            
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Qual é seu nome");
+            nomePaciente[i] = ler.next();
+            System.out.println("Qual o seu codigo de identificador");
+            idNovo = ler.nextInt();
+            if (codIdentificacao[i] == idNovo) {
+                System.out.println("Seu horario foi cancelado " + nomePaciente[i] + " !!!");
+                nomePaciente[i] = "";
+                nomeMedico[i] = "";
+                emissao[i] = 0;
+                nomeMedicamento[i] = "";
+                menu();
+            } else {
+                System.out.println("Erro!!!");
+
+            }
         }
     }
-    }
-    
-    public void lembrete(){
-        
+
+    public void LembreteMedicamento() {
         Random gerar = new Random();
-        quantidade=gerar.nextInt(1)+6;
-        dosagem=gerar.nextInt(2)+2;
-        int validade = gerar.nextInt(10)+30;
-        System.out.println("O seu medicamento deve ser tomado "+dosagem+" ml/g por dia durante "+quantidade+" dias \n e tome cuidado com a validade que é de "+validade+ " dias!!!");
-        menuu();
+        quantidade = gerar.nextInt(1) + 6;
+        dosagem = gerar.nextInt(2) + 2;
+        int validade = gerar.nextInt(10) + 30;
+        System.out.println("O seu medicamento deve ser tomado " + dosagem + " ml/g por dia durante " + quantidade + " dias \n e tome cuidado com a validade que é de " + validade + " dias!!!");
+        menu();
     }
-    
-    public void menuu(){ 
+
+    public void menu() {
         Scanner ler = new Scanner(System.in);
-         for(int i=0;i<3;i++){
-         String escolha;
-        System.out.println("Oque voce gostaria de fazer, escolha uma das opçoes");
-        System.out.println("(0)Agendar Horario\n(1)Cancelar Horario\n(2)Mandar um lembrete\n(3)Pessoas Agendadas\n(4)Menu Principal");
-        escolha = ler.next();
-         switch (escolha) {
-                case "0":
-                    agendarHorario();
-                break;
+        boolean encerraLacoRepeticao = false;
+        while(!encerraLacoRepeticao){
+            System.out.println("Escolha uma das seguintes opções:\n[1] - Agendar Horario\n[2] - Cancelar Horario\n[3] - Mandar um lembrete\n[4] - Pessoas Agendadas\n[5] - Menu Principal");
+            String escolha = ler.next();
+            switch (escolha) {
                 case "1":
-                    cancelarHorario();
-                break;
+                    AgendarHorario();
+                    break;
                 case "2":
-                    lembrete();
-                break;
+                    CancelarHorario();
+                    break;
                 case "3":
-                    marcados();
-                break;
-              case "4":
-                   i=6;
-                break;
-         }
-         }
+                    LembreteMedicamento();
+                    break;
+                case "4":
+                    ExibirPessoasMarcadas();
+                    break;
+                case "5":
+                    encerraLacoRepeticao = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        }
     }
 }
