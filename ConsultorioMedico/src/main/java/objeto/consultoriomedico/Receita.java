@@ -4,12 +4,13 @@
  */
 package objeto.consultoriomedico;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Analista original: Uelberti
+ *
  * Dev antigo: Matheus Schmidt
  * Dev novo: Lucas Pessoli
  */
@@ -110,18 +111,18 @@ public class Receita {
     public void CancelarHorario() {
         int idNovo;
         Scanner ler = new Scanner(System.in);
-        System.out.println("Para o cancelamento do seu horario precisamos confiramar alguns dados:");
+        System.out.println("Para o cancelamento do seu horário precisamos confirmar alguns dados: ");
         for (int i = 0; i < 100; i++) {
-            System.out.println("Qual é seu nome");
+            System.out.println("Informe o seu nome: ");
             nomePaciente[i] = ler.next();
-            System.out.println("Qual o seu codigo de identificador");
+            System.out.println("Informe o seu codigo de identificador: ");
             idNovo = ler.nextInt();
             if (codIdentificacao[i] == idNovo) {
-                System.out.println("Seu horario foi cancelado " + nomePaciente[i] + " !!!");
-                nomePaciente[i] = "";
-                nomeMedico[i] = "";
+                System.out.println("Sucesso! " + nomePaciente[i] + ", seu horário foi cancelado com sucesso!");
+                nomePaciente[3] = null;
+                nomeMedico[i] = null;
                 emissao[i] = 0;
-                nomeMedicamento[i] = "";
+                nomeMedicamento[i] = null;
                 menu();
             } else {
                 System.out.println("Erro!!!");
