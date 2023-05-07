@@ -28,7 +28,7 @@ public class ConsultorioMedico {
                 }
                 case "3" -> {
                     System.out.println("Voce escolheu RECEITAS");
-                    receita.menuu();
+                    receita.menu();
                 }
                 case "4" -> {
                     System.out.println("Voce escolheu PACIENTE");
