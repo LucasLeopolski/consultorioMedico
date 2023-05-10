@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package objeto.consultoriomedico;
 
 import java.util.ArrayList;
@@ -83,7 +79,6 @@ public class Receita {
             String escolha = ler.next();
             switch (escolha) {
                 case "0":
-                    i = -1;
                     break;
                 case "1":
                     menu();
@@ -96,8 +91,8 @@ public class Receita {
     }
 
     public void ExibirPessoasMarcadas() {
+        System.out.println("Pessoas agendadas:\n");
         for (int i = 0; i < fimLoop + 1; i++) {
-            System.out.println("Pessoas agendadas:\n");
             System.out.println("ID da pessoa: " + codIdentificacao[i]);
             System.out.println("Nome: " + nomePaciente[i]);
             System.out.println("Medico: " + nomeMedico[i]);
