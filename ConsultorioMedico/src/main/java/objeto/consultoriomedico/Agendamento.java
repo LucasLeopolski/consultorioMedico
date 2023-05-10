@@ -3,66 +3,132 @@
  */
 package objeto.consultoriomedico;
 
-
-
 import java.util.Scanner;
 import java.util.Random;
+
 public class Agendamento {
 
- 
+    // ajustado no padrão Camel Case
     public String nome;
-    public String Telefone;
+    public String telefone;
     public String sexo;
     public int idade;
-    public String Endereco;
+    public String endereco;
     public String especialidade;
     public String medico;
 
-    private int IdAgendamento;
+    private int idAgendamento;
     private boolean lembrete;
     private String dia;
     private String hora;
 
-    public int getIdAgendamento() {
-        return IdAgendamento;
+    public Agendamento(String nome, String telefone, String sexo, int idade, String endereco, String especialidade, String medico, int idAgendamento, boolean lembrete, String dia, String hora) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.sexo = sexo;
+        this.idade = idade;
+        this.endereco = endereco;
+        this.especialidade = especialidade;
+        this.medico = medico;
+        this.idAgendamento = idAgendamento;
+        this.lembrete = lembrete;
+        this.dia = dia;
+        this.hora = hora;
     }
 
-    public void setIdAgendamento(int id) {
-        this.IdAgendamento = IdAgendamento;
+    public int getIdAgendamento() {
+        return idAgendamento;
+    }
+
+    public void setIdAgendamento(int aIdAgendamento) {
+        this.idAgendamento = aIdAgendamento;
     }
 
     public String getTelefone() {
-        return Telefone;
+        return telefone;
     }
 
-    public String setTelefone() {
-        this.Telefone = Telefone;
-        return null;
+    public void setTelefone(String aTelefone) {
+        this.telefone = aTelefone;
+
     }
 
     public String getEndereco() {
-        return Endereco;
+        return endereco;
     }
 
-    public String setEnderecoe() {
-        this.Endereco = Endereco;
-        return null;
+    public void setEndereco(String aEndereco) {
+        this.endereco = aEndereco;
+
     }
 
     public void agendarHorario() {
 
-        System.out.println("\nAgendando horário para " + nome);
+        System.out.println("\nVocê optou por agendar uma consulta! Informe os seus dados");
+        Random random = new Random();
         Scanner sc = new Scanner(System.in);
-        System.out.println("----------------------------------");
-        System.out.println("Dia (dd/mm/aaaa): ");
-        System.out.println("----------------------------------");
+        System.out.println("\nID do agendamento: ");
+        this.idAgendamento = random.nextInt(1000);
+        System.out.println(idAgendamento);
+        System.out.print("\nDigite o seu nome completo: ");
+        nome = sc.nextLine();
+        System.out.print("\nInforme seu telefone: ");
+        telefone = sc.nextLine();
+        System.out.print("\nInforme seu sexo: ");
+        sexo = sc.nextLine();
+        System.out.print("\nQual sua idade? ");
+        idade = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Informe seu endereço: ");
+        endereco = sc.nextLine();
+        System.out.print("\nQual a especialidade você necessita? ");
+        especialidade = sc.nextLine();
+        System.out.print("\nCerto\n\n Agora informe com qual medico deseja fazer a consulta: ");
+        medico = sc.nextLine();
+        System.out.println("Informe o dia que deseja: ");
         dia = sc.nextLine();
-        System.out.println("----------------------------------");
-        System.out.println("Hora (hh:mm): ");
-        System.out.println("----------------------------------");
+        System.out.println("Certo, qual o horário: ");
         hora = sc.nextLine();
-        System.out.println("----------------------------------");
-        System.out.println("Horário agendado com sucesso!\n");
+        System.out.println("\nDeseja habilitar lembrete? (S/N): ");
+        String opcao = sc.nextLine();
+        if (opcao == "S") {
+            lembrete = opcao.equalsIgnoreCase("S");
+            System.out.println("Lembrete adicionado!");
+        } else if (opcao == "N") {
+            System.out.println("Você optou por não receber um lembrete. ");
+
+        } else {
+
+            System.out.println("Escolha apenas entre S (sim) e N (não)");
+        }
+        System.out.println("\nSua consulta está agendada, escolha o próximo passo: \n");
+        System.out.println(" [1] Marcar outra consulta      [2] Cancelar Consulta      [3] Visualizar Agendamento     [4] Sair");
+        
+        int escolha = sc.nextInt();
+
+        switch (escolha) {
+
+            case 1:
+                agendarHorario();
+                break;
+
+            case 2:
+                cancelarHorario();
+                break;
+
+            case 3:
+                verConsulta();
+                break;
+
+            case 4:
+                System.exit(0);
+                break;
+
+            default:
+                System.out.println("Escolha apenas números entre 1 e 4. ");
+
+        }
+
     }
 
     public void cancelarHorario() {
@@ -80,134 +146,15 @@ public class Agendamento {
         }
     }
 
-    public void marcarConsulta() {
-        
-        Random random = new Random();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Marcação de consulta médica");
-        System.out.println("===========================");
-        System.out.println("\nID do agendamento: ");
-        this.IdAgendamento = random.nextInt(1000);
-        System.out.println(IdAgendamento);
-        
-        System.out.print("\nDigite o nome completo: ");
-        nome = sc.nextLine();
-      
-        System.out.print("\nTelefone: ");
-        Telefone = sc.nextLine();
-        System.out.print("\nSexo: ");
-        sexo = sc.nextLine();
-        System.out.print("\nIdade: ");
-        idade = sc.nextInt();
-        sc.nextLine(); // Limpar buffer do teclado
-        System.out.print("\nEndereço: ");
-        Endereco = sc.nextLine();
-        System.out.print("\nDigite a especialidade da consulta: ");
-        especialidade = sc.nextLine();
-        System.out.print("\nDigite o nome do Médico: ");
-        medico = sc.nextLine();
-    
-        System.out.println("\n----------------------------------");
-        System.out.println("Deseja habilitar lembrete? (S/N): ");
-        System.out.println("----------------------------------");
-
-        String opcao = sc.nextLine();
-        lembrete = opcao.equalsIgnoreCase("S");
-        agendarHorario();
-
-        while (true) {
-            System.out.println("Deseja marcar outra consulta? (S/N): ");
-            opcao = sc.nextLine();
-            if (opcao.equalsIgnoreCase("S")) {
-                marcarConsulta();
-                System.out.println("----------------------------------");
-            } else {
-                break;
-            }
-        }
-        
-        System.out.println("\n----------------------------------");
-        System.out.println("Deseja ver a consulta marcada?\nDigite 1 para sim e 2 para não: ");
-        System.out.println("----------------------------------");
-        int opcao1 = sc.nextInt();
-        if (opcao1 == 1) {
-        verConsulta();
-        } else if(opcao1 == 2){
-            
-        }else{
-            System.out.println("A opção informada não existe");
-        }
-        
-        
-            System.out.println("\nDeseja marcar outra consulta? (S/N): ");
-            String opcao3 = sc.next();
-            if (opcao3.equalsIgnoreCase("S")) {
-                marcarConsulta();
-                System.out.println("----------------------------------");
-            } else {
-                
-            }
-        
-            System.out.println("\n----------------------------------");
-        System.out.println("Deseja cancelar o horario da consulta marcada?\nDigite 1 para sim e 2 para não: ");
-        System.out.println("----------------------------------");
-        int opcao5 = sc.nextInt();
-        if (opcao5 == 1) {
-        cancelarHorario();
-        } else if(opcao1 == 2){
-            
-        }else{
-            System.out.println("A opção informada não existe");
-        }
-            
-        
-      
-    }
-
-    public void verConsulta(){
-        
-        
-        System.out.println("================Consulta:" +IdAgendamento + "+======= =======");
-        System.out.println("ID do agendamento: " + IdAgendamento);
+    public void verConsulta() {
+        System.out.println("================Consulta:" + idAgendamento + "================");
         System.out.println("Nome: " + nome);
-        System.out.println("Telefone: " + Telefone);
+        System.out.println("Telefone: " + telefone);
         System.out.println("Sexo: " + sexo);
         System.out.println("Idade " + idade);
-        System.out.println("Endereço " +Endereco);
+        System.out.println("Endereço " + endereco);
         System.out.println("Especialidade da consulta" + especialidade);
-        System.out.println("Nome do Médico: " +medico);
-            
-        }
-    
-    
-    
-    
-    public void menu2() {
-        Scanner ler = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) {
-            String escolha;
-            System.out.println("Escolha uma opção !");
-            System.out.println("\n(0) Marcar Consulta \n(1)Menu Principal");
-            escolha = ler.next();
-            switch (escolha) {
-                case "0" ->
-                    marcarConsulta();
-                case "1" ->
-                   i = 1;
-
-
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        
-        Agendamento consulta = new Agendamento();
-        consulta.marcarConsulta();
+        System.out.println("Nome do Médico: " + medico);
 
     }
-
-    
-        }
-    
-
+}
