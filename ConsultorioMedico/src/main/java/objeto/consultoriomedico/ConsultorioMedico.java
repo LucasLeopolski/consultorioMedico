@@ -3,10 +3,10 @@ package objeto.consultoriomedico;
 import java.util.Scanner;
 
 public class ConsultorioMedico {
-        
-        public static void main(String[] args) {
-                
-       Receita receita = new Receita();
+
+    public static void main(String[] args) {
+
+        Receita receita = new Receita();
         Especialidades especialidade = new Especialidades();
         Agendamento agendamento = new Agendamento();
         paciente Paciente = new paciente();
@@ -35,7 +35,8 @@ public class ConsultorioMedico {
                     Paciente.menu1();
                 }
                 case "5" -> {
-                    System.out.println("Voce escolheu CADASTRAR FUNCIONARIO");
+                    System.out.println("Voce escolheu FUNCIONARIO");
+                    Funcionario.menu();
                 }
                 case "6" -> {
                     System.out.println("Voce escolheu FINANCEIRO");
