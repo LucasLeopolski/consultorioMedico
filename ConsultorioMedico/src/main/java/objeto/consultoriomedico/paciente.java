@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package objeto.consultoriomedico;
+ package objeto.consultoriomedico;
 
 import java.util.Scanner;
 
@@ -91,40 +87,70 @@ class paciente {
         this.endereco = endereco;
     }
 
-    public void atualizarPaciente() {
+public void atualizarPaciente() {
+    Scanner ler = new Scanner(System.in);
+    int opcao;
 
-        Scanner ler = new Scanner(System.in);
+    do {
+        System.out.println("Qual campo você deseja atualizar?");
+        System.out.println("1 - Nome");
+        System.out.println("2 - Idade");
+        System.out.println("3 - CPF");
+        System.out.println("4 - RG");
+        System.out.println("5 - Telefone Fixo");
+        System.out.println("6 - Telefone Móvel");
+        System.out.println("7 - E-mail");
+        System.out.println("8 - CEP");
+        System.out.println("9 - Endereço");
+        System.out.println("0 - Sair");
 
-        System.out.print("Digite o novo nome do paciente: ");
-        this.nome = ler.nextLine();
+        opcao = ler.nextInt();
 
-        System.out.print("Digite a nova idade do paciente: ");
-        this.idade = ler.nextInt();
+        switch (opcao) {
+            case 1 -> {
+                System.out.print("Digite o novo nome do paciente: ");
+                this.nome = ler.next();
+            }
+            case 2 -> {
+                System.out.print("Digite a nova idade do paciente: ");
+                this.idade = ler.nextInt();
+            }
+            case 3 -> {
+                System.out.print("Digite o novo CPF do paciente: ");
+                this.cpf = ler.nextInt();
+            }
+            case 4 -> {
+                System.out.print("Digite o novo RG do paciente: ");
+                this.rg = ler.nextInt();
+            }
+            case 5 -> {
+                System.out.print("Digite o novo telefone fixo do paciente: ");
+                this.telFixo = ler.nextInt();
+            }
+            case 6 -> {
+                System.out.print("Digite o novo telefone móvel do paciente: ");
+                this.telMovel = ler.nextInt();
+            }
+            case 7 -> {
+                System.out.print("Digite o novo e-mail do paciente: ");
+                this.email = ler.nextLine();
+            }
+            case 8 -> {
+                System.out.print("Digite o novo CEP do paciente: ");
+                this.cep = ler.nextInt();
+            }
+            case 9 -> {
+                System.out.print("Digite o novo endereço do paciente: ");
+                this.endereco = ler.nextLine();
+            }
+            case 0 -> System.out.println("Saindo do menu de atualização...");
+            default -> System.out.println("Opção inválida.");
+        }
+    } while (opcao != 0);
 
-        System.out.print("Digite o novo CPF do paciente: ");
-        this.cpf = ler.nextInt();
-
-        System.out.print("Digite o novo RG do paciente: ");
-        this.rg = ler.nextInt();
-
-        System.out.print("Digite o novo telefone fixo do paciente: ");
-        this.telFixo = ler.nextInt();
-
-        System.out.print("Digite o novo telefone móvel do paciente: ");
-        this.telMovel = ler.nextInt();
-
-        System.out.print("Digite o novo e-mail do paciente: ");
-        this.email = ler.nextLine();
-
-        System.out.print("Digite o novo CEP do paciente: ");
-        this.cep = ler.nextInt();
-
-        System.out.print("Digite o novo endereço do paciente: ");
-        this.endereco = ler.nextLine();
-
-        System.out.println("Dados do paciente atualizados com sucesso!");
-      menu1();
-    }
+    System.out.println("Dados do paciente atualizados com sucesso!");
+    menu1();
+}
 
     public void pesquisarPaciente() {
 
