@@ -40,6 +40,8 @@ public class ConsultorioMedico {
                 }
                 case "6" -> {
                     System.out.println("Voce escolheu FINANCEIRO");
+                    Financeiro financeiro = new Financeiro();                          
+                    financeiro.menu();
                 }
                 case "0" -> {
                     System.out.println("Sair");
