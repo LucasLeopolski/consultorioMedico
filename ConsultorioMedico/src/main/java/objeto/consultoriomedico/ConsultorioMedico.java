@@ -14,13 +14,13 @@ public class ConsultorioMedico {
         boolean sair = false;
         while (!sair) {
             System.out.println("\nBem vindo(a) ao Medic Softwares! No que podemos lhe ajudar!");
-            System.out.println("(1)Agendamento de consultas\n(2)Especialidades\n(3)Receitas\n(4)Paciente\n(5)Cadastrar Funcionario\n(6)Financeiro\n(0)Sair");
+            System.out.println("(1)Agendamento de consultas\n(2)Especialidades\n(3)Receitas\n(4)Paciente\n(5)Funcionario\n(6)Financeiro\n(0)Sair");
             String menu = ler.nextLine();
 
             switch (menu) {
                 case "1" -> {
                     System.out.println("Voce escolheu AGENDAMENTO DE CONSULTA");
-                    agendamento.menu2();
+                    agendamento.agendarHorario();
                 }
                 case "2" -> {
                     System.out.println("Voce escolheu ESPECIALIDADES!");
