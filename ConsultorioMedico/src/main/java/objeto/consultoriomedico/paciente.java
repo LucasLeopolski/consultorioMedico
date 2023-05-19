@@ -14,12 +14,12 @@ class paciente {
     public int idade;
     public char sexo;
     private int id;
-    private int cpf;
-    private int rg;
-    private int telFixo;
-    private int telMovel;
+    private String cpf;
+    private String rg;
+    private String telFixo;
+    private String telMovel;
     private String email;
-    private int cep;
+    private String cep;
     private String endereco;
 
 
@@ -31,35 +31,35 @@ class paciente {
         this.id = id;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(int rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
-    public int getTelFixo() {
+    public String getTelFixo() {
         return telFixo;
     }
 
-    public void setTelFixo(int telFixo) {
+    public void setTelFixo(String telFixo) {
         this.telFixo = telFixo;
     }
 
-    public int getTelMovel() {
+    public String getTelMovel() {
         return telMovel;
     }
 
-    public void setTelMovel(int telMovel) {
+    public void setTelMovel(String telMovel) {
         this.telMovel = telMovel;
     }
 
@@ -71,11 +71,11 @@ class paciente {
         this.email = email;
     }
 
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
