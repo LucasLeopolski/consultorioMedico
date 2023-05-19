@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Windows
+ * @author Uelberti
  */
 class paciente {
     public String[] nomePaciente = new String[100];
