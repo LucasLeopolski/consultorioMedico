@@ -32,7 +32,7 @@ public class ConsultorioMedico {
                 }
                 case "4" -> {
                     System.out.println("Voce escolheu PACIENTE");
-                    Paciente.menu1();
+                    Paciente.menu();
                 }
                 case "5" -> {
                     System.out.println("Voce escolheu FUNCIONARIO");
