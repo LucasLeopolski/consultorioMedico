@@ -213,7 +213,7 @@ public void atualizarPaciente() {
         
         menu1();
     }
-        public void menu1(){ 
+        public void menu(){ 
         Scanner ler = new Scanner(System.in);
          for(int i=0;i<3;i++){
          String escolha;
