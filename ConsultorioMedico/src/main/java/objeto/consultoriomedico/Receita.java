@@ -1,9 +1,9 @@
 package objeto.consultoriomedico;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Calendar;
 
 /**
  *
@@ -24,7 +24,6 @@ public class Receita {
     private int quantidade;
     private double dosagem;
     public Date validade;
-
     int fimLoop;
 
     public int getId() {
@@ -59,7 +58,7 @@ public class Receita {
         this.quantidade = quatidade;
     }
 
-    public void AgendarHorario() {
+    public void agendarHorario() {
         for (int i = 0; i != -1; i++) {
             fimLoop = i;
             Scanner ler = new Scanner(System.in);
@@ -103,7 +102,7 @@ public class Receita {
         menu();
     }
 
-    public void CancelarHorario() {
+    public void cancelarHorario() {
         int idNovo;
         Scanner ler = new Scanner(System.in);
         System.out.println("Para o cancelamento do seu horário precisamos confirmar alguns dados: ");
@@ -126,12 +125,20 @@ public class Receita {
         }
     }
 
-    public void LembreteMedicamento() {
+    public void lembreteHorario() {
         Random gerar = new Random();
         quantidade = gerar.nextInt(1) + 6;
         dosagem = gerar.nextInt(2) + 2;
-        int validade = gerar.nextInt(10) + 30;
-        System.out.println("O seu medicamento deve ser tomado " + dosagem + " ml/g por dia durante " + quantidade + " dias \n e tome cuidado com a validade que é de " + validade + " dias!!!");
+        Random random = new Random();
+        int dia = random.nextInt(365);
+        int mes = random.nextInt(12) + 1;
+        Calendar calendario = Calendar.getInstance();
+        calendario.set(Calendar.YEAR, 2023);
+        calendario.set(Calendar.MONTH, mes - 1);
+        calendario.set(Calendar.DAY_OF_MONTH, 1);
+        calendario.add(Calendar.DAY_OF_MONTH, dia);
+        System.out.println(calendario.getTime());
+        System.out.println("O seu medicamento deve ser tomado " + calendario.getTime() + " ml/g por dia durante " + quantidade + " dias.");
         menu();
     }
 
@@ -143,13 +150,13 @@ public class Receita {
             String escolha = ler.next();
             switch (escolha) {
                 case "1":
-                    AgendarHorario();
+                    agendarHorario();
                     break;
                 case "2":
-                    CancelarHorario();
+                    cancelarHorario();
                     break;
                 case "3":
-                    LembreteMedicamento();
+                    lembreteHorario();
                     break;
                 case "4":
                     ExibirPessoasMarcadas();
