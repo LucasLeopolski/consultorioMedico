@@ -33,13 +33,13 @@ public class Financeiro {
     Financeiro() {
     }
 
-    public void depositarDinheiro() {
+    public void depositarDinheiro() { //pagarconsulta//
         Scanner dinheiro = new Scanner(System.in);
         int deposito = dinheiro.nextInt();
         System.out.println("Foi realizado um depósito de R$" + deposito);
     }
 
-    public void sacarDinheiro() {
+    public void sacarDinheiro() {//Pagarfuncionario
         Scanner dinheiro = new Scanner(System.in);
         int deposito = dinheiro.nextInt();
         System.out.println("Foi realizado um saque de R$" + deposito);
