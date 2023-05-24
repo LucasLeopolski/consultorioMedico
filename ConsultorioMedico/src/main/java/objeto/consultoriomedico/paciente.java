@@ -1,4 +1,4 @@
- package objeto.consultoriomedico;
+package objeto.consultoriomedico;
 
 import java.util.Scanner;
 
@@ -117,19 +117,19 @@ public void atualizarPaciente() {
             }
             case 3 -> {
                 System.out.print("Digite o novo CPF do paciente: ");
-                this.cpf = ler.nextInt();
+                this.cpf = ler.nextLine();
             }
             case 4 -> {
                 System.out.print("Digite o novo RG do paciente: ");
-                this.rg = ler.nextInt();
+                this.rg = ler.nextLine();
             }
             case 5 -> {
                 System.out.print("Digite o novo telefone fixo do paciente: ");
-                this.telFixo = ler.nextInt();
+                this.telFixo = ler.nextLine();
             }
             case 6 -> {
                 System.out.print("Digite o novo telefone móvel do paciente: ");
-                this.telMovel = ler.nextInt();
+                this.telMovel = ler.nextLine();
             }
             case 7 -> {
                 System.out.print("Digite o novo e-mail do paciente: ");
@@ -137,7 +137,7 @@ public void atualizarPaciente() {
             }
             case 8 -> {
                 System.out.print("Digite o novo CEP do paciente: ");
-                this.cep = ler.nextInt();
+                this.cep = ler.nextLine();
             }
             case 9 -> {
                 System.out.print("Digite o novo endereço do paciente: ");
@@ -149,7 +149,7 @@ public void atualizarPaciente() {
     } while (opcao != 0);
 
     System.out.println("Dados do paciente atualizados com sucesso!");
-    menu1();
+    menu();
 }
 
     public void pesquisarPaciente() {
@@ -173,7 +173,7 @@ public void atualizarPaciente() {
         } else {
             System.out.println("Paciente não encontrado!");
         }
-        menu1();
+        menu();
     }
     
     public void cadastrarPaciente() {
@@ -189,29 +189,29 @@ public void atualizarPaciente() {
         idade = ler.nextInt();
 
         System.out.print("Qual é seu CPF: ");
-        cpf = ler.nextInt();
+        cpf = ler.nextLine();
 
         System.out.print("Qual é seu RG: ");
-        rg = ler.nextInt();
+        rg = ler.nextLine();
 
         System.out.print("Qual é seu Telefone Fixo: ");
-        telFixo = ler.nextInt();
+        telFixo = ler.nextLine();
 
         System.out.print("Qual é seu Telefone Movel: ");
-        telMovel = ler.nextInt();
+        telMovel = ler.nextLine();
 
         System.out.print("Qual é seu Email: ");
         email = ler.next();
 
         System.out.print("Qual é seu CEP: ");
-        cep = ler.nextInt();
+        cep = ler.nextLine();
 
         System.out.print("Qual é seu Endereco: ");
         endereco = ler.next();
 
         System.out.println("Paciente cadastrado com sucesso!");
         
-        menu1();
+        menu();
     }
         public void menu(){ 
         Scanner ler = new Scanner(System.in);
