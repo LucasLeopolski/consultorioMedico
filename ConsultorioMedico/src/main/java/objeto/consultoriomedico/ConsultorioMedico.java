@@ -9,9 +9,10 @@ public class ConsultorioMedico {
         Receita receita = new Receita();
         Especialidades especialidade = new Especialidades();
         Agendamento agendamento = new Agendamento();
-        paciente Paciente = new paciente();
+        Paciente paciente = new Paciente();
         Scanner ler = new Scanner(System.in);
         boolean sair = false;
+        
         while (!sair) {
             System.out.println("\nBem vindo(a) ao Medic Softwares! No que podemos lhe ajudar!");
             System.out.println("(1)Agendamento de consultas\n(2)Especialidades\n(3)Receitas\n(4)Paciente\n(5)Funcionario\n(6)Financeiro\n(0)Sair");
@@ -19,27 +20,27 @@ public class ConsultorioMedico {
 
             switch (menu) {
                 case "1" -> {
-                    System.out.println("Voce escolheu AGENDAMENTO DE CONSULTA");
+                    System.out.println("Voce escolheu Agendamento de Consulta");
                     agendamento.agendarHorario();
                 }
                 case "2" -> {
-                    System.out.println("Voce escolheu ESPECIALIDADES!");
+                    System.out.println("Voce escolheu Especialidades");
                     especialidade.menu();
                 }
                 case "3" -> {
-                    System.out.println("Voce escolheu RECEITAS");
+                    System.out.println("Voce escolheu Receitas");
                     receita.menu();
                 }
                 case "4" -> {
-                    System.out.println("Voce escolheu PACIENTE");
-                    Paciente.menu();
+                    System.out.println("Voce escolheu Paciente");
+                    paciente.menu();
                 }
                 case "5" -> {
-                    System.out.println("Voce escolheu FUNCIONARIO");
+                    System.out.println("Voce escolheu Funcionário");
                     Funcionario.menu();
                 }
                 case "6" -> {
-                    System.out.println("Voce escolheu FINANCEIRO");
+                    System.out.println("Voce escolheu Financeiro");
                     Financeiro financeiro = new Financeiro();                          
                     financeiro.menu();
                 }
@@ -48,7 +49,7 @@ public class ConsultorioMedico {
                     sair = true;
                 }
                 default -> {
-                    System.out.println("OPÇÃO INVALIDA!! TENTE NOVAMENTE\n\n====================================================");
+                    System.out.println("Opção Inválida!! Tente Novamente\n\n====================================================");
                 }
             }
         }
