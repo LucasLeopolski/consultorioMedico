@@ -12,11 +12,11 @@ import java.util.Calendar;
  */
 public class Receita extends Pessoa{
     
-    public Receita(String nome, int idade, String cpf, String telefone, String email, String cep, String endereco) {
-        super(' ', nome, "", idade, ' ', cpf, telefone, email, cep, endereco);
+    public Receita(String nomePessoa, int idade) {
+        super(' ', nomePessoa, "", idade, ' ', "", "", "", "", "");
     }
     
-    public String[] nomePaciente = new String[100];
+    public String[] nome = new String[100];
     public String[] nomeMedico = new String[100];
     public String[] nomeMedicamento = new String[100];
     public String nomeComercial;
@@ -67,7 +67,7 @@ public class Receita extends Pessoa{
             fimLoop = i;
             Scanner ler = new Scanner(System.in);
             System.out.println("# Informe o seu nome:");
-            nomePaciente[i] = ler.next();
+            nome[i] = ler.next();
             System.out.println("# Informe o nome do medico que lhe forneceu a receita:");
             nomeMedico[i] = ler.next();
             System.out.println("* Há quantos dias que o médico lhe forneceu a receita:");
@@ -77,7 +77,7 @@ public class Receita extends Pessoa{
             Random gerador = new Random();
             codIdentificacao[i] = gerador.nextInt(1000);
             System.out.println("Seu código de identificação: " + codIdentificacao[i]);
-            System.out.println("Sr(a)" + nomePaciente[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
+            System.out.println("Sr(a)" + nome[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
             System.out.println("(0)Agendar outro paciente\n(1)Voltar para o menu");
             String escolha = ler.next();
             switch (escolha) {
@@ -97,7 +97,7 @@ public class Receita extends Pessoa{
         System.out.println("Pessoas agendadas:\n");
         for (int i = 0; i < fimLoop + 1; i++) {
             System.out.println("ID da pessoa: " + codIdentificacao[i]);
-            System.out.println("Nome: " + nomePaciente[i]);
+            System.out.println("Nome: " + nome[i]);
             System.out.println("Medico: " + nomeMedico[i]);
             System.out.println("Tempo da receita: " + emissao[i] + " dias");
             System.out.println("Medicamento: " + nomeMedicamento[i]);
@@ -112,12 +112,12 @@ public class Receita extends Pessoa{
         System.out.println("Para o cancelamento do seu horário precisamos confirmar alguns dados: ");
         for (int i = 0; i < 100; i++) {
             System.out.println("Informe o seu nome: ");
-            nomePaciente[i] = ler.next();
+            nome[i] = ler.next();
             System.out.println("Informe o seu codigo de identificador: ");
             idNovo = ler.nextInt();
             if (codIdentificacao[i] == idNovo) {
-                System.out.println("Sucesso! " + nomePaciente[i] + ", seu horário foi cancelado com sucesso!");
-                nomePaciente[3] = null;
+                System.out.println("Sucesso! " + nome[i] + ", seu horário foi cancelado com sucesso!");
+                nome[3] = null;
                 nomeMedico[i] = null;
                 emissao[i] = 0;
                 nomeMedicamento[i] = null;
@@ -145,6 +145,35 @@ public class Receita extends Pessoa{
         System.out.println("O seu medicamento deve ser tomado " + calendario.getTime() + " ml/g por dia durante " + quantidade + " dias.");
         menu();
     }
+    
+    @Override
+    public void cadastrar(){
+        for (int i = 0; i != -1; i++) {
+            fimLoop = i;
+            Scanner ler = new Scanner(System.in);
+            System.out.println("# Informe o seu nome:");
+            nome[i] = ler.next();
+            System.out.println("# Informe o nome do medico que lhe forneceu a receita:");
+            nomeMedico[i] = ler.next();
+            System.out.println("* Há quantos dias que o médico lhe forneceu a receita:");
+            emissao[i] = ler.nextInt();
+            System.out.println("#Informe o medicamento:");
+            nomeMedicamento[i] = ler.next();
+            Random gerador = new Random();
+            codIdentificacao[i] = gerador.nextInt(1000);
+            System.out.println("Seu código de identificação: " + codIdentificacao[i]);
+            System.out.println("Sr(a)" + nome[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
+            System.out.println("(0)Agendar outro paciente\n(1)Voltar para o menu");
+            String escolha = ler.next();
+            switch (escolha) {
+                case "0": //irá dar continuidade no loop
+                    break;
+                case "1":
+                    menu();
+                    break;
+            }
+        }
+    }
 
     public void menu() {
         Scanner ler = new Scanner(System.in);
@@ -154,7 +183,7 @@ public class Receita extends Pessoa{
             String escolha = ler.next();
             switch (escolha) {
                 case "1":
-                    agendarHorario();
+                    cadastrar();
                     break;
                 case "2":
                     cancelarHorario();
