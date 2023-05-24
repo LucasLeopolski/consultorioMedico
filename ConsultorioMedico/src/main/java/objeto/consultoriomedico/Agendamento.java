@@ -9,11 +9,11 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Agendamento {
-
+    
     Medico medicos = new Medico();
     List<Agendamento> agenda = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
-
+    
     public String nomeCompleto;
     public String telefone;
     public String sexo;
@@ -21,7 +21,6 @@ public class Agendamento {
     public String endereco;
     public String especialidade;
     public Medico medico;
-
     private int idAgendamento;
     private String dia;
     private String hora;
@@ -62,12 +61,11 @@ public class Agendamento {
     public String getEndereco() {
         return endereco;
     }
-
+    
     public void setEndereco(String aEndereco) {
         this.endereco = aEndereco;
-
+        
     }
-
     public void agendarHorario() {
 
         System.out.println("\nVocê optou por agendar uma consulta! Informe os seus dados");
@@ -89,12 +87,14 @@ public class Agendamento {
         endereco = sc.nextLine();
         System.out.print("\nInforme a especialidade você necessita: ");
         System.out.println("[1] CLINICO GERAL   [2] CARDIOLOGISTA   [3]");
+        
         int especialidadeInt = Integer.valueOf(especialidade);
+        
         switch (especialidadeInt) {
             case 1:
                 System.out.println("Você escolheu Clinico Geral, seu médico é o Dr. " + medico);
                 break;
-
+                
         }
         System.out.print("\nCerto\n\n Agora informe com qual medico deseja fazer a consulta: ");
         Medico Medico = medicos;
@@ -108,7 +108,6 @@ public class Agendamento {
         int escolha = sc.nextInt();
 
         switch (escolha) {
-
             case 1:
                 agendarHorario();
                 break;
@@ -127,9 +126,8 @@ public class Agendamento {
 
             default:
                 System.out.println("Escolha apenas números entre 1 e 4. ");
-
+                
         }
-
     }
 
     public void cancelarHorario() {
