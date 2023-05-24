@@ -10,7 +10,11 @@ import java.util.Calendar;
  * Dev antigo: Matheus Schmidt
  * Dev novo: Lucas Pessoli
  */
-public class Receita {
+public class Receita extends Pessoa{
+    
+    public Receita(String nome, int idade, String cpf, String telefone, String email, String cep, String endereco) {
+        super(' ', nome, "", idade, ' ', cpf, telefone, email, cep, endereco);
+    }
     
     public String[] nomePaciente = new String[100];
     public String[] nomeMedico = new String[100];
