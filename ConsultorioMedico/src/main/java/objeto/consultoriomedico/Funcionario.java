@@ -6,36 +6,24 @@ package objeto.consultoriomedico;
  */
 import java.util.Scanner;
 
-public class Funcionario {
+public class Funcionario extends Pessoa {
 
-    public String nome;
-    public String telefone;
-    public String dataNascimento;
+    public Funcionario(String nome, int idade, String cpf, String telefone, String email, String cep, String endereco) {
+        super(' ', nome, "", idade, ' ', cpf, telefone, email, cep, endereco);
+    }
     public String cargo;
     public String supervisor;
-    public String dataIngresso;
-    public String horarioEntrada;
-    public String horarioSaida;
-    private int id;
-    private int codPonto;
+    private int idFunc;
     private double salario;
 
     Scanner scan = new Scanner(System.in);
 
-    public int getId() {
-        return id;
+    public int getIdFunc() {
+        return idFunc;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCodPonto() {
-        return codPonto;
-    }
-
-    public void setCodPonto(int codPonto) {
-        this.codPonto = codPonto;
+    public void setIdFunc(int id) {
+        this.idFunc = idFunc;
     }
 
     public double getSalario() {
@@ -55,7 +43,7 @@ public class Funcionario {
         telefone = scan.nextLine();
 
         System.out.println("Digite a nova data de nascimento do funcionário: ");
-        dataNascimento = scan.nextLine();
+        idade = scan.nextInt();
 
         System.out.println("Digite o novo cargo do funcionário: ");
         cargo = scan.nextLine();
@@ -63,32 +51,25 @@ public class Funcionario {
         System.out.println("Digite o nome do novo supervisor do funcionário: ");
         supervisor = scan.nextLine();
 
-        System.out.println("Digite a nova data de ingresso do funcionário: ");
-        dataIngresso = scan.nextLine();
-
-        System.out.println("Digite o novo horário de entrada do funcionário: ");
-        horarioEntrada = scan.nextLine();
-
-        System.out.println("Digite o novo horário de saída do funcionário: ");
-        horarioSaida = scan.nextLine();
-
         System.out.println("Digite o novo ID do funcionário: ");
-        id = scan.nextInt();
-
-        System.out.println("Digite o novo código de ponto do funcionário: ");
-        codPonto = scan.nextInt();
+        idFunc = scan.nextInt();
 
         System.out.println("Digite o novo salário do funcionário: ");
         salario = scan.nextDouble();
 
         System.out.println("Funcionário atualizado com sucesso!");
+
+        Funcionario funcionario = new Funcionario(nome, idade, cpf, telefone, email, cep, endereco);
+        menu(funcionario);
+
     }
 
     public double calcularSalario() {
         return salario;
     }
 
-    public void cadastrarFuncionario() {
+    @Override
+    public void cadastrar() {
 
         System.out.println("Digite o nome do funcionário: ");
         this.nome = scan.nextLine();
@@ -97,7 +78,7 @@ public class Funcionario {
         this.telefone = scan.nextLine();
 
         System.out.println("Digite a data de nascimento do funcionário: ");
-        this.dataNascimento = scan.nextLine();
+        this.idade = scan.nextInt();
 
         System.out.println("Digite o cargo do funcionário: ");
         this.cargo = scan.nextLine();
@@ -105,31 +86,19 @@ public class Funcionario {
         System.out.println("Digite o nome do supervisor do funcionário: ");
         this.supervisor = scan.nextLine();
 
-        System.out.println("Digite a data de ingresso do funcionário: ");
-        this.dataIngresso = scan.nextLine();
-
-        System.out.println("Digite o horário de entrada do funcionário: ");
-        this.horarioEntrada = scan.nextLine();
-
-        System.out.println("Digite o horário de saída do funcionário: ");
-        this.horarioSaida = scan.nextLine();
-
         System.out.println("Digite o ID do funcionário: ");
-        this.id = scan.nextInt();
-
-        System.out.println("Digite o código de ponto do funcionário: ");
-        this.codPonto = scan.nextInt();
+        this.idFunc = scan.nextInt();
 
         System.out.println("Digite o salário do funcionário: ");
         this.salario = scan.nextDouble();
 
         System.out.println("Funcionário cadastrado com sucesso!");
+        Funcionario funcionario = new Funcionario(nome, idade, cpf, telefone, email, cep, endereco);
+        menu(funcionario);
     }
 
-    public static void menu() {
-        Funcionario funcionario = new Funcionario();
-
-        Scanner Scan = new Scanner(System.in);
+    public static void menu(Funcionario funcionario) {
+        Scanner scan = new Scanner(System.in);
         String opcao;
 
         do {
@@ -139,25 +108,26 @@ public class Funcionario {
             System.out.println("3 - Calcular salário");
             System.out.println("4 - Sair");
 
-            opcao = Scan.nextLine();
+            opcao = scan.nextLine();
 
             switch (opcao) {
-                case "1" -> {
-                    funcionario.cadastrarFuncionario();
-                }
-                case "2" -> {
+                case "1":
+                    funcionario.cadastrar();
+                    break;
+                case "2":
                     funcionario.atualizarFuncionario();
-                }
-                case "3" -> {
+                    break;
+                case "3":
                     System.out.println("Salário: " + funcionario.calcularSalario());
-                }
-                case "4" -> {
+                    break;
+                case "4":
                     System.out.println("Saindo...");
-                }
-                default -> {
+                    break;
+                default:
                     System.out.println("Opção inválida!");
-                }
+                    break;
             }
         } while (!"4".equals(opcao));
     }
+
 }
