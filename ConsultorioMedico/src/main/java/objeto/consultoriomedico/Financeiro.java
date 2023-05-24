@@ -5,10 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Financeiro {
-    
  
     public double valor;
-
     public double saldo;
     public double taxaJuro;
     public int numConta;
@@ -16,9 +14,8 @@ public class Financeiro {
     public int dtAbertura;
     public int dtFechamento;
     public List<String> historicoTransacao;
-    public double limiteCredito;
 
-    public Financeiro(double valor, double taxaJuro, int numConta, String tipoConta, int dtAbertura, double limiteCredito) {
+    public Financeiro(double valor, double taxaJuro, int numConta, String tipoConta, int dtAbertura) {
         this.valor = valor;
         this.saldo = valor;
         this.taxaJuro = taxaJuro;
@@ -26,19 +23,19 @@ public class Financeiro {
         this.tipoConta = tipoConta;
         this.dtAbertura = dtAbertura;
         this.historicoTransacao = new ArrayList<>();
-        this.limiteCredito = limiteCredito;
+ 
     }
 
     Financeiro() {
     }
 
-    public void pagarConsulta() { //pagarconsulta//
+    public void pagarConsulta() { 
         Scanner dinheiro = new Scanner(System.in);
         int pagarConsult = dinheiro.nextInt();
         System.out.println("Foi realizado um pagamento no valor de R$" + pagarConsult);
     }
 
-    public void pagarFuncionario() {//Pagarfuncionario
+    public void pagarFuncionario() {
         Scanner dinheiro = new Scanner(System.in);
         int pagarFunc = dinheiro.nextInt();
         System.out.println("Foi realizado um pagamento de Funcionário no valor de R$" + pagarFunc);
@@ -105,4 +102,3 @@ public class Financeiro {
         }
     }          
 }
-
