@@ -12,8 +12,7 @@ import java.util.Scanner;
  */
 public class Medico extends Funcionario {
 
-    Agendamento agendamento = new Agendamento();
-    Receita receita = new Receita(" ", 10); 
+    Receita receita = new Receita();
     Scanner ler = new Scanner(System.in);
 
     public Medico(String nome, int idade, String cpf, String telefone, String email, String cep, String endereco) {
@@ -24,22 +23,13 @@ public class Medico extends Funcionario {
     public String especialidade;
     public String prescricao;
 
-  
     public void realizarConsulta() {
         System.out.println("O médico está realizando uma consulta no momento!");
 
-    }
-   
-        
-
-    /*public void prescreverReceita() {
-        System.out.println("        MEDIC SOFTWARES        ");
-        System.out.println("RECEITA NÚMERO: " + agendamento.getIdAgendamento());
-        System.out.println("PACIENTE: " + agendamento.nomeCompleto);
-        System.out.println("TELEFONE: " + agendamento.getTelefone());
-        System.out.println("\n\nPRESCRIÇÃO: ");
-        prescricao = ler.nextLine();*/
+        receita.cadastrarReceita();
+        receita.emitirReceita();
 
     }
 
+}
 
