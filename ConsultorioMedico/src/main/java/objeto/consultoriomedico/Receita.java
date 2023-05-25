@@ -9,12 +9,7 @@ import java.util.Calendar;
  * Dev antigo: Matheus Schmidt
  * Dev novo: Lucas Pessoli
  */
-public class Receita extends Pessoa{
-    
-    public Receita(String nomePaciente, int idade) {
-        super(' ', nomePaciente, "", idade, ' ', "", "", "", "", "");
-    }
-    
+public class Receita{
     private String nomeMedicamento;
     private int validadeDias;
     private int quantidade;
