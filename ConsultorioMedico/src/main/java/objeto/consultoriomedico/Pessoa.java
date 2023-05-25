@@ -1,28 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package objeto.consultoriomedico;
+
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
  * @author lucas
  */
 public class Pessoa {
-    
-    public int idPessoa; 
+
+    Paciente novoPaciente = new Paciente();
+    Random random = new Random();
+
+    public int idPessoa;
     public String nome;
-    public String sobrenome; 
-    private int idade; 
-    private char sexo; 
-    private String cpf; 
-    private String telefone; 
-    private String email; 
-    private String cep; 
-    private String endereco; 
-    
-    public Pessoa(){}
+    public String sobrenome;
+    public int idade;
+    public char sexo;
+    public String cpf;
+    public String telefone;
+    public String email;
+    public String cep;
+    public String endereco;
+
+    public Pessoa() {
+    }
 
     public Pessoa(int idPessoa, String nome, String sobrenome, int idade, char sexo, String cpf, String telefone, String email, String cep, String endereco) {
         this.idPessoa = idPessoa;
@@ -37,77 +39,33 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public int getIdade() {
-        return idade;
+    public void cadastrarFuncionario() {
+
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Sobrenome: " + this.sobrenome);
+        System.out.println("Telefone: " + this.telefone);
+        System.out.println("Cpf: " + this.cpf);
+        System.out.println("Endereço: " + this.endereco);
+
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void cadastrarPaciente() {
+        Scanner ler = new Scanner(System.in);
+
+        System.out.println("Informe seu nome: ");
+        nome = ler.nextLine();
+        System.out.println("Informe seu sobrenome: ");
+        sobrenome = ler.nextLine();
+        System.out.println("Informe seu telefone: ");
+        telefone = ler.nextLine();
+        System.out.println("Informe seu cpf:  ");
+        cpf = ler.nextLine();
+        System.out.println("Informe seu endereco:  ");
+        endereco = ler.nextLine();
+        System.out.printf("Id Paciente: ");
+        novoPaciente.idPaciente = random.nextInt(1000);
+        System.out.println(novoPaciente.idPaciente);
+
     }
 
-    public char getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-    
-    public void cadastrar(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("QUEM VOCÊ DESEJA CADASTRAR? ");
-        System.out.println("[1] Paciente   [2] Medico");
-        
-        int cadastro= sc.nextInt(); 
-        switch (cadastro) {
-            
-            case 1:
-                System.out.println("");
-        
-        
-        }
-    
-    }
-    
-    
 }
