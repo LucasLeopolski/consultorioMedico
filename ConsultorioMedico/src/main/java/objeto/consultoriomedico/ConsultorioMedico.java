@@ -8,7 +8,7 @@ public class ConsultorioMedico {
         
         boolean entrarFuncionario = false;
         Receita receita = new Receita("a",19);
-        paciente Paciente = new paciente();
+        Paciente paciente = new Paciente();
         Scanner ler = new Scanner(System.in);
         boolean sair = false;
         String usuario = "suporte";
@@ -48,7 +48,7 @@ public class ConsultorioMedico {
                     }
                     case "4" -> {
                         System.out.println("Voce escolheu Paciente");
-                        Paciente.menu();
+                        paciente.menu();
                     }
                     case "5" -> {
                         System.out.println("Voce escolheu Funcionario");
