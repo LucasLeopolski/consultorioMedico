@@ -7,7 +7,7 @@ public class ConsultorioMedico {
     public static void main(String[] args) {
         
         boolean entrarFuncionario = false;
-        Receita receita = new Receita("a",19);
+        Receita receita = new Receita();
         paciente Paciente = new paciente();
         Scanner ler = new Scanner(System.in);
         boolean sair = false;
