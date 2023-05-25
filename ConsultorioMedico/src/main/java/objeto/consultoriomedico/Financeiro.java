@@ -5,46 +5,40 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Financeiro {
+    
  
     public double valor;
     public double saldo;
-    public double taxaJuro;
-    public int numConta;
-    public String tipoConta;
-    public int dtAbertura;
-    public int dtFechamento;
+    public double calcularTaxaJuros;
     public List<String> historicoTransacao;
+    
 
-    public Financeiro(double valor, double taxaJuro, int numConta, String tipoConta, int dtAbertura) {
+    public Financeiro(double valor) {
         this.valor = valor;
         this.saldo = valor;
-        this.taxaJuro = taxaJuro;
-        this.numConta = numConta;
-        this.tipoConta = tipoConta;
-        this.dtAbertura = dtAbertura;
         this.historicoTransacao = new ArrayList<>();
- 
+        
     }
 
     Financeiro() {
     }
 
-    public void pagarConsulta() { 
+    public void pagarConsulta() { //pagarconsulta//
         Scanner dinheiro = new Scanner(System.in);
         int pagarConsult = dinheiro.nextInt();
         System.out.println("Foi realizado um pagamento no valor de R$" + pagarConsult);
     }
 
-    public void pagarFuncionario() {
+    public void pagarFuncionario() {//Pagarfuncionario
         Scanner dinheiro = new Scanner(System.in);
         int pagarFunc = dinheiro.nextInt();
         System.out.println("Foi realizado um pagamento de Funcionário no valor de R$" + pagarFunc);
     }
     public void calcularJuros() {
         Scanner dinheiro = new Scanner(System.in);
-        int juros = dinheiro.nextInt();  
-        double calculojuros =  juros * 1.01;
-         System.out.println("O valor de juros é: "+calculojuros); 
+        int juros  = dinheiro.nextInt();  
+        this.calcularTaxaJuros =juros * 1.01;
+         System.out.println("O valor de juros é: "+calcularTaxaJuros); 
     }
     public void historicoTransacao(){
         ArrayList<String> historico = new ArrayList<String>();
@@ -102,3 +96,5 @@ public class Financeiro {
         }
     }          
 }
+
+
