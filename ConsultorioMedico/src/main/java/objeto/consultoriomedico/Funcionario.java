@@ -12,7 +12,7 @@ public class Funcionario extends Pessoa {
         super(' ', nome, "", idade, ' ', cpf, telefone, email, cep, endereco);
     }
     private String cargo;
-    private int idFunc;
+    private int idFuncuncionario;
     private double salario;
 
     Scanner scan = new Scanner(System.in);
@@ -26,11 +26,11 @@ public class Funcionario extends Pessoa {
     }
 
     public int getIdFunc() {
-        return idFunc;
+        return idFuncuncionario;
     }
 
-    public void setIdFunc(int id) {
-        this.idFunc = idFunc;
+    public void setIdFuncionario(int id) {
+        this.idFuncuncionario = idFuncuncionario;
     }
 
     public double mostrarSalario() {
@@ -56,7 +56,7 @@ public class Funcionario extends Pessoa {
         idade = scan.nextInt();
 
         System.out.println("Digite o novo ID do funcionário: ");
-        idFunc = scan.nextInt();
+        idFuncuncionario = scan.nextInt();
 
         System.out.println("Digite o novo salário do funcionário: ");
         salario = scan.nextDouble();
@@ -68,7 +68,7 @@ public class Funcionario extends Pessoa {
     }
 
     @Override
-    public void cadastrar() {
+    public void cadastrarFuncionario() {
 
         System.out.println("Digite o cargo do funcionário: ");
         cargo = scan.nextLine();
@@ -79,23 +79,17 @@ public class Funcionario extends Pessoa {
         System.out.println("Digite o telefone do funcionário: ");
         telefone = scan.nextLine();
 
-        System.out.println("Digite a data de nascimento do funcionário: ");
-        idade = scan.nextInt();
-
         System.out.println("Digite o ID do funcionário: ");
-        idFunc = scan.nextInt();
-
-        System.out.println("Digite o salário do funcionário: ");
-        setSalario(99999);
+        idFuncuncionario = scan.nextInt();
 
         System.out.println("Funcionário cadastrado com sucesso!");
+
         menu();
 
     }
 
     public static void menu() {
-        Funcionario funcionario = new Funcionario("ola", ' ', "", "", "", "", "", ""
-        );
+        Funcionario funcionario = new Funcionario("", ' ', "", "", "", "", "", "");
         Scanner scan = new Scanner(System.in);
         String opcao;
 
@@ -110,14 +104,13 @@ public class Funcionario extends Pessoa {
 
             switch (opcao) {
                 case "1":
-                    funcionario.cadastrar();
+                    funcionario.cadastrarFuncionario();
                     break;
                 case "2":
                     funcionario.atualizarFuncionario();
                     break;
                 case "3":
-                    System.out.println("nome: " + funcionario.idFunc);
-                    System.out.println("Salário: " + funcionario.mostrarSalario());
+                    System.out.println("Salários em breve em nova atualização!");
                     break;
                 case "4":
                     System.out.println("Saindo...");
