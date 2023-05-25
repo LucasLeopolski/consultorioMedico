@@ -12,31 +12,18 @@ import java.util.Calendar;
  */
 public class Receita extends Pessoa{
     
-    public Receita(String nomePessoa, int idade) {
-        super(' ', nomePessoa, "", idade, ' ', "", "", "", "", "");
+    public Receita(String nomePaciente, int idade) {
+        super(' ', nomePaciente, "", idade, ' ', "", "", "", "", "");
     }
     
-    public String[] nome = new String[100];
+    public String[] nomePaciente = new String[100];
     public String[] nomeMedico = new String[100];
     public String[] nomeMedicamento = new String[100];
-    public String nomeComercial;
-    public String consulta;
-    private String instrucoes;
     public int[] emissao = new int[100];
     public int[] codIdentificacao = new int[100];
-    private int id;
     private int quantidade;
     private double dosagem;
-    public Date validade;
-    int fimLoop;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int fimLoop;
 
     public double getDosagem() {
         return dosagem;
@@ -44,14 +31,6 @@ public class Receita extends Pessoa{
 
     public void setDosagem(double dosagem) {
         this.dosagem = dosagem;
-    }
-
-    public String getInstrucoes() {
-        return instrucoes;
-    }
-
-    public void setInstrucoes(String instrucoes) {
-        this.instrucoes = instrucoes;
     }
 
     public int getQuatidade() {
@@ -67,7 +46,7 @@ public class Receita extends Pessoa{
             fimLoop = i;
             Scanner ler = new Scanner(System.in);
             System.out.println("# Informe o seu nome:");
-            nome[i] = ler.next();
+            nomePaciente[i] = ler.next();
             System.out.println("# Informe o nome do medico que lhe forneceu a receita:");
             nomeMedico[i] = ler.next();
             System.out.println("* Há quantos dias que o médico lhe forneceu a receita:");
@@ -77,7 +56,7 @@ public class Receita extends Pessoa{
             Random gerador = new Random();
             codIdentificacao[i] = gerador.nextInt(1000);
             System.out.println("Seu código de identificação: " + codIdentificacao[i]);
-            System.out.println("Sr(a)" + nome[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
+            System.out.println("Sr(a)" + nomePaciente[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
             System.out.println("(0)Agendar outro paciente\n(1)Voltar para o menu");
             String escolha = ler.next();
             switch (escolha) {
@@ -87,19 +66,19 @@ public class Receita extends Pessoa{
                     menu();
                     break;
                 case "2":
-                    ExibirPessoasMarcadas();
+                    exibirPessoasMarcadas();
                     break;
             }
         }
     }
 
-    public void ExibirPessoasMarcadas() {
+    public void exibirPessoasMarcadas() {
         System.out.println("Pessoas agendadas:\n");
         for (int i = 0; i < fimLoop + 1; i++) {
             System.out.println("ID da pessoa: " + codIdentificacao[i]);
-            System.out.println("Nome: " + nome[i]);
+            System.out.println("Nome: " + nomePaciente[i]);
             System.out.println("Medico: " + nomeMedico[i]);
-            System.out.println("Tempo da receita: " + emissao[i] + " dias");
+            System.out.println("Receita emitida há: " + emissao[i] + " dias");
             System.out.println("Medicamento: " + nomeMedicamento[i]);
             System.out.println("\n============================================\n");
         }
@@ -112,12 +91,12 @@ public class Receita extends Pessoa{
         System.out.println("Para o cancelamento do seu horário precisamos confirmar alguns dados: ");
         for (int i = 0; i < 100; i++) {
             System.out.println("Informe o seu nome: ");
-            nome[i] = ler.next();
+            nomePaciente[i] = ler.next();
             System.out.println("Informe o seu codigo de identificador: ");
             idNovo = ler.nextInt();
             if (codIdentificacao[i] == idNovo) {
-                System.out.println("Sucesso! " + nome[i] + ", seu horário foi cancelado com sucesso!");
-                nome[3] = null;
+                System.out.println("Sucesso! " + nomePaciente[i] + ", seu horário foi cancelado com sucesso!");
+                nomePaciente[3] = null;
                 nomeMedico[i] = null;
                 emissao[i] = 0;
                 nomeMedicamento[i] = null;
@@ -152,7 +131,7 @@ public class Receita extends Pessoa{
             fimLoop = i;
             Scanner ler = new Scanner(System.in);
             System.out.println("# Informe o seu nome:");
-            nome[i] = ler.next();
+            nomePaciente[i] = ler.next();
             System.out.println("# Informe o nome do medico que lhe forneceu a receita:");
             nomeMedico[i] = ler.next();
             System.out.println("* Há quantos dias que o médico lhe forneceu a receita:");
@@ -162,7 +141,7 @@ public class Receita extends Pessoa{
             Random gerador = new Random();
             codIdentificacao[i] = gerador.nextInt(1000);
             System.out.println("Seu código de identificação: " + codIdentificacao[i]);
-            System.out.println("Sr(a)" + nome[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
+            System.out.println("Sr(a)" + nomePaciente[i] + " seu codigo gerado para identificar o medicamento ou caso precise cancelar é " + codIdentificacao[i]);
             System.out.println("(0)Agendar outro paciente\n(1)Voltar para o menu");
             String escolha = ler.next();
             switch (escolha) {
@@ -192,7 +171,7 @@ public class Receita extends Pessoa{
                     lembreteHorario();
                     break;
                 case "4":
-                    ExibirPessoasMarcadas();
+                    exibirPessoasMarcadas();
                     break;
                 case "5":
                     encerraLacoRepeticao = true;
