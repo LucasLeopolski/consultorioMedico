@@ -9,7 +9,7 @@ import java.util.Random;
  * @author lucas
  */
 public class Pessoa {
-    paciente novoPaciente = new paciente(); 
+    Paciente novoPaciente = new Paciente(); 
     Random random = new Random();
 
     public int idPessoa;
