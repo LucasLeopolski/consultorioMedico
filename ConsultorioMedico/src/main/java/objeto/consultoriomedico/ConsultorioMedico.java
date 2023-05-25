@@ -8,7 +8,7 @@ public class ConsultorioMedico {
         
         boolean entrarFuncionario = false;
         Receita receita = new Receita("a",19);
-        Paciente paciente = new Paciente();
+        paciente Paciente = new paciente();
         Scanner ler = new Scanner(System.in);
         boolean sair = false;
         String usuario = "suporte";
@@ -24,6 +24,8 @@ public class ConsultorioMedico {
             String senhaInformada = ler.nextLine();
             if(usuarioInformado.equals(usuario) && senhaInformada.equals(senha)){
                 entrarFuncionario = true;
+            }else{
+                System.out.println("Senha inválida... Continuando como paciente");
             }
         }else{
             System.out.println("Entrando como paciente...");
@@ -48,7 +50,7 @@ public class ConsultorioMedico {
                     }
                     case "4" -> {
                         System.out.println("Voce escolheu Paciente");
-                        paciente.menu();
+                        Paciente.menu();
                     }
                     case "5" -> {
                         System.out.println("Voce escolheu Funcionario");
@@ -69,7 +71,7 @@ public class ConsultorioMedico {
                 }   
             }else{
                 System.out.println("\nBem vindo(a) ao Medic Softwares! No que podemos lhe ajudar!");
-                System.out.println("(1)Agendamento de consultas\n(2)Especialidades\n(3)Receitas\n(4)Financeiro\n(0)Sair");
+                System.out.println("(1)Agendamento de consultas\n(2)Especialidades\n(3)Financeiro\n(0)Sair");
                 String menu = ler.nextLine();
                 switch(menu){
                     case "1" -> {
@@ -81,10 +83,6 @@ public class ConsultorioMedico {
     //                    especialidade.menu();
                     }
                     case "3" -> {
-                        System.out.println("Voce escolheu Receitas");
-                        receita.menu();
-                    }
-                    case "4" -> {
                         System.out.println("Voce escolheu Financeiro");
                         Financeiro financeiro = new Financeiro();                          
                         financeiro.pagarConsulta();
