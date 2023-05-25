@@ -1,3 +1,4 @@
+
 package objeto.consultoriomedico;
 
 import java.util.Scanner;
@@ -8,8 +9,7 @@ import java.util.Random;
  * @author lucas
  */
 public class Pessoa {
-
-    Paciente novoPaciente = new Paciente();
+    paciente novoPaciente = new paciente(); 
     Random random = new Random();
 
     public int idPessoa;
@@ -40,15 +40,17 @@ public class Pessoa {
     }
 
     public void cadastrarFuncionario() {
-
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Sobrenome: " + this.sobrenome);
-        System.out.println("Telefone: " + this.telefone);
-        System.out.println("Cpf: " + this.cpf);
-        System.out.println("Endereço: " + this.endereco);
+        
+        System.out.println("Nome: "+this.nome);
+        System.out.println("Sobrenome: "+this.sobrenome);
+        System.out.println("Telefone: "+this.telefone);
+        System.out.println("Cpf: "+this.cpf);
+        System.out.println("Endereço: "+this.endereco);
+        
+        
 
     }
-
+    
     public void cadastrarPaciente() {
         Scanner ler = new Scanner(System.in);
 
