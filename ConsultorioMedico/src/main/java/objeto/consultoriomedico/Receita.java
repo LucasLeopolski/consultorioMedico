@@ -2,7 +2,6 @@ package objeto.consultoriomedico;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Calendar;
 
 /**
  *
@@ -14,6 +13,7 @@ public class Receita{
     private int validadeDias;
     private int quantidade;
     private int dosagemEmHoras;
+    Datas data = new Datas();
 
     public int getValidadeDias() {
         return validadeDias;
@@ -56,33 +56,12 @@ public class Receita{
         this.nomeMedicamento = nomeMedicamento;
     }
     
-    public String gerarData(boolean resposta){
-        String data;
-        if(resposta == true){ //retornará a data atual
-            Random random = new Random();
-            int dia = random.nextInt(365);
-            int mes = random.nextInt(12) + 1;
-            Calendar calendario = Calendar.getInstance();
-            data = calendario.getTime().toString();   
-        }else{
-            Random random = new Random(); //retorna uma data randomizada
-            int dia = random.nextInt(365);
-            int mes = random.nextInt(12) + 1;
-            Calendar calendario = Calendar.getInstance();
-            calendario.set(Calendar.YEAR, 2023);
-            calendario.set(Calendar.MONTH, mes - 1);
-            calendario.set(Calendar.DAY_OF_MONTH, 1);
-            calendario.add(Calendar.DAY_OF_MONTH, dia);
-            data = calendario.getTime().toString();
-        }
-        return data;
-    }
 
     public void lembreteHorario() {
         Random gerar = new Random();
         quantidade = gerar.nextInt(1) + 6;
         dosagemEmHoras = gerar.nextInt(2) + 2;
-        System.out.println("O seu medicamento: "+ getNomeMedicamento() + "\nDeve ser tomado em: " + gerarData(false) + "\nDurante " + quantidade + " dias.");
+        System.out.println("O seu medicamento: "+ getNomeMedicamento() + "\nDeve ser tomado em: " + data.gerarData(false) + "\nDurante " + quantidade + " dias.");
         menu();
     }
 
@@ -120,7 +99,7 @@ public class Receita{
         System.out.println("O nome do medicamento é: " + getNomeMedicamento());
         System.out.println("A dosagem em horas é: " + getDosagemEmHoras());
         System.out.println("A validade é de: " + getValidadeDias() + " dias");
-        System.out.println("Data emitida: " + gerarData(true));
+        System.out.println("Data emitida: " + data.gerarData(true));
     }
 
     public void menu() {
