@@ -2,7 +2,7 @@ package objeto.consultoriomedico;
 
 /**
  *
- * @author aluno
+ * @author Uelberti
  */
 public class Paciente extends Pessoa{
      public Paciente() {
