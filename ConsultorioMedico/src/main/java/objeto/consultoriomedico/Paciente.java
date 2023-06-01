@@ -1,5 +1,5 @@
 package objeto.consultoriomedico;
-
+import java.util.Scanner;
 /**
  *
  * @author Uelberti
