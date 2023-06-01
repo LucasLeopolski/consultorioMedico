@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author aluno
+ * @author Lucas Pessoli
  */
 public class Datas {
     
