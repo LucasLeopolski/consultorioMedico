@@ -19,7 +19,7 @@ public class Funcionario extends Pessoa {
 
     @Override
     public void cadastrarFuncionario() {
-        super.cadastrarPaciente(); 
+        super.cadastrarFuncionario(); 
     }
     public String getNome(){
         return nome;
