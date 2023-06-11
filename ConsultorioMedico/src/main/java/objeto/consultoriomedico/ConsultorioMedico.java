@@ -54,7 +54,8 @@ public class ConsultorioMedico {
                     }
                     case "5" -> {
                         System.out.println("Voce escolheu Funcionario");
-    //                    Funcionario.menu();
+                        MenuFuncionario menuFuncionario = new MenuFuncionario();
+                        menuFuncionario.exibirMenu();
                     }
                     case "6" -> {
                         System.out.println("Voce escolheu Financeiro");
