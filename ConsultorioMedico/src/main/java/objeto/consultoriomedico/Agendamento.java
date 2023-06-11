@@ -9,18 +9,17 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Agendamento {
-    
-    Medico medicos = new Medico();
-    List<Agendamento> agenda = new ArrayList<>();
+
+    CadastroEspecialidade espcialidade = new CadastroEspecialidade();
+
     Scanner sc = new Scanner(System.in);
-    
+
     public String nomeCompleto;
     public String telefone;
     public String sexo;
     public int idade;
     public String endereco;
-    public String especialidade;
-    public Medico medico;
+    public String especialidadeDesejada;
     private int idAgendamento;
     private String dia;
     private String hora;
@@ -28,14 +27,13 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(String nome, String telefone, String sexo, int idade, String endereco, String especialidade, String medico, int idAgendamento, boolean lembrete, String dia, String hora) {
+    public Agendamento(String nome, String telefone, String sexo, int idade, String endereco, String especialidadeDesejada, int idAgendamento, boolean lembrete, String dia, String hora) {
         this.nomeCompleto = nome;
         this.telefone = telefone;
         this.sexo = sexo;
         this.idade = idade;
         this.endereco = endereco;
-        this.especialidade = especialidade;
-        // this.medico = medico;
+        this.especialidadeDesejada = especialidadeDesejada;
         this.idAgendamento = idAgendamento;
         this.dia = dia;
         this.hora = hora;
@@ -61,14 +59,15 @@ public class Agendamento {
     public String getEndereco() {
         return endereco;
     }
-    
+
     public void setEndereco(String aEndereco) {
         this.endereco = aEndereco;
-        
+
     }
+
     public void agendarHorario() {
 
-        System.out.println("\nVocê optou por agendar uma consulta! Informe os seus dados");
+        System.out.println("\n Informe os seus dados");
         Random random = new Random();
 
         System.out.println("\nID do agendamento: ");
@@ -83,21 +82,20 @@ public class Agendamento {
         System.out.print("\nQual sua idade? ");
         idade = sc.nextInt();
         sc.nextLine();
-        System.out.print("Informe seu endereço: ");
+        System.out.print("\nInforme seu endereço: ");
         endereco = sc.nextLine();
         System.out.print("\nInforme a especialidade você necessita: ");
-        System.out.println("[1] CLINICO GERAL   [2] CARDIOLOGISTA   [3]");
-        
-        int especialidadeInt = Integer.valueOf(especialidade);
-        
-        switch (especialidadeInt) {
+        System.out.println(espcialidade.cadastrarEspecialidades());
+       // especialidadeDesejada = sc.next();
+
+      //  int especialidadeDesejada = Integer.valueOf(especialidadeDesejada);
+
+      /*  switch (especialidadeDesejada) {
             case 1:
-                System.out.println("Você escolheu Clinico Geral, seu médico é o Dr. " + medico);
+                System.out.println("");
                 break;
-                
-        }
-        System.out.print("\nCerto\n\n Agora informe com qual medico deseja fazer a consulta: ");
-        Medico Medico = medicos;
+
+        }*/
         System.out.println("Informe o dia que deseja: ");
         dia = sc.nextLine();
         System.out.println("Certo, qual o horário: ");
@@ -126,7 +124,7 @@ public class Agendamento {
 
             default:
                 System.out.println("Escolha apenas números entre 1 e 4. ");
-                
+
         }
     }
 
@@ -144,8 +142,7 @@ public class Agendamento {
         System.out.println("Sexo: " + sexo);
         System.out.println("Idade " + idade);
         System.out.println("Endereço " + endereco);
-        System.out.println("Especialidade da consulta" + especialidade);
-        System.out.println("Nome do Médico: " + medico);
+        System.out.println("Especialidade da consulta" + especialidadeDesejada);
         System.out.println("Dia: " + dia + ", " + hora + " horas.");
 
     }
