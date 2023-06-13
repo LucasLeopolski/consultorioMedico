@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Usuário
+ * @author Lucas Leopolski
  */
 public class CadastroEspecialidade {
 
@@ -24,12 +24,16 @@ public class CadastroEspecialidade {
 
     }
 
-    public String cadastrarEspecialidades() {
+    public ArrayList  cadastrarEspecialidades() {
         ArrayList<String> Especialidades = new ArrayList<String>();
-        Especialidades.add("Cardiologia - Medico(a): Dr(a) Marcos.");
-        Especialidades.add("Pediatria - Medico(a): Dr(a) Paula.");
-        Especialidades.add("Psiquiatria - Medico(a): Dr(a) Carlos.");
-        return null;
+        Especialidades.add("");
+        Especialidades.add("\n[1] Cardiologia - Medico(a): Dr(a) Marcos.");
+        Especialidades.add("\n[2] Pediatria - Medico(a): Dr(a) Paula.");
+        Especialidades.add("\n[3] Psiquiatria - Medico(a): Dr(a) Carlos.");
+        
+        
+        return Especialidades;
 
-    }
+    
+}
 }
