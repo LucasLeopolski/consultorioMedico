@@ -1,16 +1,20 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+*
+*@author Lucas Leopolski
  */
+
 package objeto.consultoriomedico;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
 
 public class Agendamento {
 
     CadastroEspecialidade espcialidade = new CadastroEspecialidade();
+
+    Datas datas = new Datas();
 
     Scanner sc = new Scanner(System.in);
 
@@ -19,15 +23,15 @@ public class Agendamento {
     public String sexo;
     public int idade;
     public String endereco;
-    public String especialidadeDesejada;
+    public int especialidadeDesejada;
     private int idAgendamento;
-    private String dia;
-    private String hora;
+
+    String dia = datas.gerarData(false);
 
     public Agendamento() {
     }
 
-    public Agendamento(String nome, String telefone, String sexo, int idade, String endereco, String especialidadeDesejada, int idAgendamento, boolean lembrete, String dia, String hora) {
+    public Agendamento(String nome, String telefone, String sexo, int idade, String endereco, int especialidadeDesejada, int idAgendamento, boolean lembrete) {
         this.nomeCompleto = nome;
         this.telefone = telefone;
         this.sexo = sexo;
@@ -35,8 +39,7 @@ public class Agendamento {
         this.endereco = endereco;
         this.especialidadeDesejada = especialidadeDesejada;
         this.idAgendamento = idAgendamento;
-        this.dia = dia;
-        this.hora = hora;
+
     }
 
     public int getIdAgendamento() {
@@ -86,20 +89,20 @@ public class Agendamento {
         endereco = sc.nextLine();
         System.out.print("\nInforme a especialidade você necessita: ");
         System.out.println(espcialidade.cadastrarEspecialidades());
-       // especialidadeDesejada = sc.next();
+        especialidadeDesejada = sc.nextInt();
 
-      //  int especialidadeDesejada = Integer.valueOf(especialidadeDesejada);
+        ArrayList<String> lista = new ArrayList<>();
+        lista = espcialidade.cadastrarEspecialidades();
 
-      /*  switch (especialidadeDesejada) {
+        switch (especialidadeDesejada) {
             case 1:
-                System.out.println("");
+                System.out.println(lista.get(1));
+
                 break;
 
-        }*/
+        }
         System.out.println("Informe o dia que deseja: ");
-        dia = sc.nextLine();
-        System.out.println("Certo, qual o horário: ");
-        hora = sc.nextLine();
+
         System.out.println("\nSua consulta está agendada, escolha o próximo passo: \n");
         System.out.println(" [1] Marcar outra consulta      [2] Cancelar Consulta      [3] Visualizar Agendamento     [4] Sair");
 
@@ -130,8 +133,6 @@ public class Agendamento {
 
     public void cancelarHorario() {
         System.out.println("Cancelando horário para " + nomeCompleto);
-        dia = null;
-        hora = null;
         System.out.println("Horário cancelado com sucesso!");
     }
 
@@ -143,7 +144,7 @@ public class Agendamento {
         System.out.println("Idade " + idade);
         System.out.println("Endereço " + endereco);
         System.out.println("Especialidade da consulta" + especialidadeDesejada);
-        System.out.println("Dia: " + dia + ", " + hora + " horas.");
+        System.out.println("Data: " + dia);
 
     }
 }
