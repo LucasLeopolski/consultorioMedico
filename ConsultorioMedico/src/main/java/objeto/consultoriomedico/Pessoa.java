@@ -6,11 +6,10 @@ import java.util.Random;
 
 /**
  *
- * @author lucas
+ * @author Lucas Leopolski
  */
 public class Pessoa {
-    Paciente novoPaciente = new Paciente(); 
-    Random random = new Random();
+    
 
     public int idPessoa;
     public String nome;
@@ -22,6 +21,7 @@ public class Pessoa {
     public String email;
     public String cep;
     public String endereco;
+    public int idFuncionario; 
 
     public Pessoa() {
     }
@@ -65,8 +65,7 @@ public class Pessoa {
         System.out.println("Informe seu endereco:  ");
         endereco = ler.nextLine();
         System.out.printf("Id Paciente: ");
-        novoPaciente.idPaciente = random.nextInt(1000);
-        System.out.println(novoPaciente.idPaciente);
+        idFuncionario = ler.nextInt();
 
     }
 
