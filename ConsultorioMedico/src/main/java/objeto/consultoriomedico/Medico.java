@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author lucas
+ * @author Lucas Leopolski
  */
 public class Medico extends Funcionario {
 
@@ -22,7 +22,6 @@ public class Medico extends Funcionario {
     }
 
     private int crm;
-    public String especialidade;
 
     public void realizarConsulta() {
         System.out.println("O médico está realizando uma consulta no momento!");
