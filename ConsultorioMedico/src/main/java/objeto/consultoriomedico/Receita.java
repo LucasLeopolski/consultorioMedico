@@ -62,7 +62,6 @@ public class Receita{
         quantidade = gerar.nextInt(1) + 6;
         dosagemEmHoras = gerar.nextInt(2) + 2;
         System.out.println("O seu medicamento: "+ getNomeMedicamento() + "\nDeve ser tomado em: " + data.gerarData(false) + "\nDurante " + quantidade + " dias.");
-        menu();
     }
 
     public void cadastrarReceita(){
@@ -95,7 +94,6 @@ public class Receita{
     }
     
     public void emitirReceita(){
-        System.out.println("A receita é:");
         System.out.println("O nome do medicamento é: " + getNomeMedicamento());
         System.out.println("A dosagem em horas é: " + getDosagemEmHoras());
         System.out.println("A validade é de: " + getValidadeDias() + " dias");
