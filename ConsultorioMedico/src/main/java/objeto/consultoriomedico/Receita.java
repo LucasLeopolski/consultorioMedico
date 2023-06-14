@@ -65,7 +65,7 @@ public class Receita{
     }
 
     public void cadastrarReceita(){
-        for(int i=0;i<50;i--){
+        while (true){
             System.out.println("Informe qual tarja pertence o seu remédio: preta/vermelha/amarela");
             Scanner ler = new Scanner(System.in);
             String tarja = ler.nextLine();
@@ -88,7 +88,7 @@ public class Receita{
             System.out.println("Você deseja voltar ao menu? (y/n)");
             String resposta = ler.nextLine();
             if(resposta.equalsIgnoreCase("y")){
-                i=52;
+                break;
             }
         }
     }
