@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuário
+ * @author Uelberti
  */
 public class Paciente extends Pessoa {
     
