@@ -49,7 +49,7 @@ public class ConsultorioMedico {
                     }
                     case "3" -> {
                         System.out.println("Voce escolheu Paciente");
-                        Paciente.menu();
+                        Paciente.exibirMenu();
                     }
                     case "4" -> {
                         System.out.println("Voce escolheu Funcionario");
