@@ -14,6 +14,7 @@ import java.util.List;
 public class CadastroEspecialidade {
 
     public String nomeEspecialidade;
+    public ArrayList<String> Especialidades;
 
     public CadastroEspecialidade() {
     }
@@ -25,7 +26,7 @@ public class CadastroEspecialidade {
     }
 
     public ArrayList  cadastrarEspecialidades() {
-        ArrayList<String> Especialidades = new ArrayList<String>();
+        Especialidades = new ArrayList<String>();
         Especialidades.add("");
         Especialidades.add("\n[1] Cardiologia - Medico(a): Dr(a) Marcos.");
         Especialidades.add("\n[2] Pediatria - Medico(a): Dr(a) Paula.");
@@ -35,5 +36,9 @@ public class CadastroEspecialidade {
         return Especialidades;
 
     
-}
+    }
+    
+    public String retornarDescricaoEspecialidade(int codEspecialidade){
+        return Especialidades.get(codEspecialidade);
+    }
 }
