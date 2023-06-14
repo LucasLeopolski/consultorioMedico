@@ -23,6 +23,14 @@ public class Medico extends Funcionario {
 
     private int crm;
 
+    public int getCrm() {
+        return crm;
+    }
+
+    public void setCrm(int crm) {
+        this.crm = crm;
+    }
+
     public void realizarConsulta() {
         System.out.println("O médico está realizando uma consulta no momento!");
 
