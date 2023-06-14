@@ -99,6 +99,14 @@ public class Agendamento {
                 System.out.println(lista.get(1));
 
                 break;
+                case 2:
+                System.out.println(lista.get(2));
+
+                break;
+                case 3:
+                System.out.println(lista.get(3));
+
+                break;
 
         }
         System.out.println("Informe o dia que deseja: ");
@@ -143,8 +151,10 @@ public class Agendamento {
         System.out.println("Sexo: " + sexo);
         System.out.println("Idade " + idade);
         System.out.println("Endereço " + endereco);
-        System.out.println("Especialidade da consulta" + especialidadeDesejada);
+        System.out.println("Especialidade da consulta" + espcialidade.retornarDescricaoEspecialidade(especialidadeDesejada));
         System.out.println("Data: " + dia);
 
     }
+    
+    
 }
