@@ -3,7 +3,6 @@
 *
 *@author Lucas Leopolski
  */
-
 package objeto.consultoriomedico;
 
 import java.util.ArrayList;
@@ -50,24 +49,6 @@ public class Agendamento {
         this.idAgendamento = aIdAgendamento;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String aTelefone) {
-        this.telefone = aTelefone;
-
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String aEndereco) {
-        this.endereco = aEndereco;
-
-    }
-
     public void agendarHorario() {
 
         System.out.println("\n Informe os seus dados");
@@ -99,11 +80,11 @@ public class Agendamento {
                 System.out.println(lista.get(1));
 
                 break;
-                case 2:
+            case 2:
                 System.out.println(lista.get(2));
 
                 break;
-                case 3:
+            case 3:
                 System.out.println(lista.get(3));
 
                 break;
@@ -155,6 +136,5 @@ public class Agendamento {
         System.out.println("Data: " + dia);
 
     }
-    
-    
+
 }
